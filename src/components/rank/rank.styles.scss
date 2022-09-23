@@ -1,0 +1,10 @@
+.rank-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 29px;
+
+    span {
+        margin-bottom: 10px;
+    }
+}

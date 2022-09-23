@@ -1,0 +1,14 @@
+.logo-container {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(80deg, #2c3e50 0%, #bdc3c7 100%);
+    margin-bottom: 40px;
+
+    svg {
+        width: 100px;
+        height: 100px;
+    }
+}

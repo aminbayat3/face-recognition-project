@@ -1,0 +1,15 @@
+.navigation-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 30px;
+
+    p {
+        cursor: pointer;
+        font-size: 28px;
+        transition: color 0.2s ease-out;
+
+        &:hover {
+            color: #0B6382;
+        }
+    }
+}

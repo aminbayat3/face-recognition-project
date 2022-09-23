@@ -1,0 +1,69 @@
+.image-link-container {
+  max-width: 750px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 50px auto;
+  font-size: 29px;
+  
+
+  .image-link-title {
+    margin-top: 0;
+    margin-bottom: 50px;
+  }
+
+  .image-link-wrapper {
+    width: 80%;
+    height: 160px;
+    box-sizing: content-box;
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 3px 7px 0.5px #00233f;
+    border-radius: 6px;
+    background-color: #e5e5f7;
+    background-color: black;
+    background-image: radial-gradient(
+        white,
+        rgba(255, 255, 255, 0.2) 2px,
+        transparent 40px
+      ),
+      radial-gradient(white, rgba(255, 255, 255, 0.15) 1px, transparent 30px),
+      radial-gradient(white, rgba(255, 255, 255, 0.1) 2px, transparent 40px),
+      radial-gradient(
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.1) 2px,
+        transparent 30px
+      );
+    background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+
+    .image-link-input {
+      width: 60%;
+      height: 27%;
+      font-size: inherit;
+      padding: 6px 5px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+    .detect-button {
+      width: 20%;
+      height: 28%;
+      border: none;
+      font-size: inherit;
+      font-weight: bold;
+      color: white;
+      background-color: #00457d;
+      cursor: pointer;
+      transition: background-color 0.2s ease-out;
+
+      &:hover {
+        background-color: #0b6382;
+      }
+    }
+  }
+}
