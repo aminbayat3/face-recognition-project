@@ -1,8 +1,5 @@
 body {
   margin: 0;
-  padding: 0 20px 30px 20px;
-  min-height: 100vh;
-  overflow-x: hidden;
   font-family: 'Lobster', cursive, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

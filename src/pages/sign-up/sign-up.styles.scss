@@ -1,0 +1,57 @@
+.sign-up-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    .sign-up-form {
+      font-family: Poppins-Medium, sans-serif;
+      position: relative;
+      width: 500px;
+      height: 680px;
+      padding: 55px 55px 37px 55px;
+      border-radius: 10px;
+      background: linear-gradient(to top, #0b6382, #00233f);
+  
+      .sign-up-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background-color: #fff;
+        margin: 0 auto;
+  
+        img {
+          height: 37px;
+        }
+      }
+  
+      .sign-up-title {
+        font-family: inherit;
+        font-size: 30px;
+        display: block;
+        text-align: center;
+        color: #fff;
+        line-height: 1.2;
+        text-transform: uppercase;
+        padding: 27px 0 34px 0;
+      }
+  
+      .login {
+        position: absolute;
+        font-weight: bold;
+        bottom: 40px;
+        left: 43.8%;
+        font-size: 13.7px;
+        letter-spacing: 0.09em;
+        color: rgba(255, 255, 255, 0.7);
+  
+        &:hover {
+          color: #fff;
+          cursor: pointer;
+        }
+      }
+    }
+  }

@@ -1,0 +1,54 @@
+$background-color-one: #1282ab;
+$background-color-two: #00233f;
+
+// when we are refactoring, we need to have a base button and the two button simply extend that.
+.button-container {
+  width: 20%;
+  font-size: 14.5px;
+  letter-spacing: 0.5px;
+  padding: 14px;
+  background: linear-gradient(
+    to bottom,
+    $background-color-one,
+    $background-color-two
+  );
+  color: #fff;
+  text-transform: uppercase;
+  font-family: Poppins-Medium, inherit;
+  font-weight: bolder;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-top-right-radius: 10px;
+  transition: all 0.4s ease-out;
+
+  &:hover {
+    background: linear-gradient(
+      to bottom,
+      lighten($background-color-one, 8%),
+      lighten($background-color-two, 8%)
+    );
+    color: rgb(20, 20, 20);
+  }
+
+  &.login-button {
+    min-width: 120px;
+    height: 50px;
+    color: rgb(20, 20, 20);
+    background: linear-gradient(to bottom, #fff, #fff);
+    border-radius: 25px;
+    margin: 0 auto;
+    
+
+    &:hover {
+      background: linear-gradient(
+        to bottom,
+        darken($background-color-one, 10%),
+        darken($background-color-two, 5%)
+      );
+      color: #fff;
+    }
+  }
+}

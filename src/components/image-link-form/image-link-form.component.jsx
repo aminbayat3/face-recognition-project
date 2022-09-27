@@ -1,3 +1,5 @@
+import Button from "../button/button.component";
+
 import "./image-link-form.styles.scss";
 
 const ImageLinkForm = ({ onButtonSubmit, ...otherProps }) => {
@@ -8,9 +10,9 @@ const ImageLinkForm = ({ onButtonSubmit, ...otherProps }) => {
       </p>
       <div className="image-link-wrapper">
         <input className="image-link-input" {...otherProps} />
-        <button className="detect-button" onClick={onButtonSubmit}>
+        <Button type='submit' onClick={onButtonSubmit}>
           Detect
-        </button>
+        </Button>
       </div>
     </div>
   );

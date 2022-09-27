@@ -52,12 +52,13 @@
     }
     .detect-button {
       width: 20%;
-      height: 28%;
-      border: none;
+      padding: 12.1px;
       font-size: inherit;
       font-weight: bold;
       color: white;
       background-color: #00457d;
+      border: none;
+      border-radius: 1.5px;
       cursor: pointer;
       transition: background-color 0.2s ease-out;
 
