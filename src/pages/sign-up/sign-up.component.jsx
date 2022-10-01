@@ -1,59 +1,41 @@
-import { useState } from "react";
+import { useFormFieldsUpdate } from "../../helpers/useFormFieldsUpdate/useFormFieldsUpdate";
 
 import FormInput from "../../components/form-input/form-input.component";
-import Checkbox from "../../components/checkbox/checkbox.component";
 import Button from "../../components/button/button.component";
+import AuthenticationHeader from "../../components/authentication-header/authentication-header.component";
 
 import passwordLabel from "../../assets/password-label.png";
-import inputLabel from "../../assets/input-label.png";
-import formLogo from "../../assets/form-logo.png";
+import emailLabel from "../../assets/email-label.png";
+import nameLabel from "../../assets/name-label.png";
 
 import "./sign-up.styles.scss";
 
-const defaultFormFields = {
-  email: "",
-  password: "",
-};
-
-
 const SignUp = () => {
-  const [formFields, setFormFields] = useState(defaultFormFields);
-  const [rememberMeChecked, setRememberMeChecked] = useState(false);
+  const { onHandleChange, formFields } = useFormFieldsUpdate("name");
 
-  const { email, password } = formFields;
+  const { email, password, name } = formFields;
 
-  const handleClick = () => {
+  const onHandleSubmit = (e) => {
+    e.preventDefault();
     console.log("log in");
-  };
-
-  const onHandleChange = (e) => {
-    const { name, value } = e.target;
-
-    setFormFields({ ...formFields, [name]: value });
-  };
-
-  const onChangeHandler = () => {
-    setRememberMeChecked((prev) => !prev);
+    console.log('Sign Up', name);
   };
 
   return (
     <div className="sign-up-container">
-      <form className="sign-up-form">
-        <span className="sign-up-logo">
-          <img src={formLogo} alt="logo" />
-        </span>
-        <span className="sign-up-title">Sign Up</span>
+      <form className="sign-up-form" onSubmit={onHandleSubmit}>
+        <AuthenticationHeader title="Sign Up" />
         <FormInput
-          placeholder="Email"
-          label={inputLabel}
-          name="email"
-          value={email}
+          placeholder="Name"
+          label={nameLabel}
+          name="name"
+          value={name}
           onChange={onHandleChange}
-          type="email"
+          type="text"
         />
         <FormInput
           placeholder="Email"
-          label={inputLabel}
+          label={emailLabel}
           name="email"
           value={email}
           onChange={onHandleChange}
@@ -67,16 +49,10 @@ const SignUp = () => {
           onChange={onHandleChange}
           type="password"
         />
-        <Checkbox
-          type="checkbox"
-          label="Remember Me"
-          checked={rememberMeChecked}
-          onChange={onChangeHandler}
-        />
-        <Button type="submit" onClick={handleClick} login>
-          Log In
+        <Button type="submit" login>
+          Sign Up
         </Button>
-        <span className="register">Register</span>
+        <span className="register">Sign In</span>
       </form>
     </div>
   );

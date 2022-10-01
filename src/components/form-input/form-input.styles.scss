@@ -1,9 +1,5 @@
 $main-color: #fff;
 
-@mixin shrinkLabel {
-  top: -14px;
-}
-
 .form-input-container {
   position: relative;
   height: 45px;
@@ -39,7 +35,7 @@ $main-color: #fff;
     }
 
     &:focus ~ .form-input-label {
-      @include shrinkLabel();
+      top: -14px;
 
       .email {
         width: 17px;
@@ -50,6 +46,11 @@ $main-color: #fff;
         width: 13px;
         height: 16.5px;
       }
+
+      .name {
+        width: 16px;
+        height: 16px;
+      }
     }
 
     &::placeholder {
@@ -58,10 +59,6 @@ $main-color: #fff;
       color: $main-color;
       opacity: 0.95;
     }
-  }
-
-  input[type="password"] {
-    letter-spacing: 0.2em;
   }
 
   .form-input-label {

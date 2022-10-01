@@ -1,33 +1,25 @@
 import { useState } from "react";
+import { useFormFieldsUpdate } from "../../helpers/useFormFieldsUpdate/useFormFieldsUpdate";
 
+import AuthenticationHeader from "../../components/authentication-header/authentication-header.component";
 import FormInput from "../../components/form-input/form-input.component";
 import Checkbox from "../../components/checkbox/checkbox.component";
 import Button from "../../components/button/button.component";
 
 import passwordLabel from "../../assets/password-label.png";
-import inputLabel from "../../assets/input-label.png";
-import formLogo from "../../assets/form-logo.png";
+import emailLabel from "../../assets/email-label.png";
 import "./sign-in.styles.scss";
 
-const defaultFormFields = {
-  email: "",
-  password: "",
-};
-
 const SignIn = () => {
-  const [formFields, setFormFields] = useState(defaultFormFields);
+  const { onHandleChange, formFields } = useFormFieldsUpdate();
   const [rememberMeChecked, setRememberMeChecked] = useState(false);
 
-  const { email, password } = formFields;
+  const { email, password, name } = formFields;
 
-  const handleClick = () => {
+  const onHandleSubmit = (e) => {
+    e.preventDefault();
     console.log("log in");
-  };
-
-  const onHandleChange = (e) => {
-    const { name, value } = e.target;
-
-    setFormFields({ ...formFields, [name]: value });
+    console.log('Sign In', name);
   };
 
   const onChangeHandler = () => {
@@ -36,14 +28,11 @@ const SignIn = () => {
 
   return (
     <div className="sign-in-container">
-      <form className="sign-in-form">
-        <span className="login-logo">
-          <img src={formLogo} alt="logo" />
-        </span>
-        <span className="login-title">log in</span>
+      <form className="sign-in-form" onSubmit={onHandleSubmit}>
+        <AuthenticationHeader title="Log In" />
         <FormInput
           placeholder="Email"
-          label={inputLabel}
+          label={emailLabel}
           name="email"
           value={email}
           onChange={onHandleChange}
@@ -63,7 +52,7 @@ const SignIn = () => {
           checked={rememberMeChecked}
           onChange={onChangeHandler}
         />
-        <Button type="submit" onClick={handleClick} login>
+        <Button type="submit" login>
           Log In
         </Button>
         <span className="register">Register</span>
