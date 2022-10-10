@@ -1,0 +1,22 @@
+Context is primarily used when some data needs to be accessible
+by many components at different nesting levels. If you only want to avoid passing 
+some props through many levels, component composition is often a simpler solution than context.
+
+// component composition
+function Page({user, avatarSize}) {
+  const userLink = (
+    <Link href={user.permalink}>
+      <Avatar user={user} size={avatarSize} />
+    </Link>
+  );
+  return <PageLayout userLink={userLink} />;
+}
+
+// Now, we have:
+<Page user={user} avatarSize={avatarSize} />
+// ... which renders ...
+<PageLayout userLink={...} />
+// ... which renders ...
+<NavigationBar userLink={...} />
+// ... which renders ...
+{props.userLink}

@@ -1,4 +1,5 @@
-import { useFormFieldsUpdate } from "../../helpers/useFormFieldsUpdate/useFormFieldsUpdate";
+import { Link } from "react-router-dom";
+import { useFormFieldsUpdate } from "../../helpers/useFormFieldsUpdate.js";
 
 import FormInput from "../../components/form-input/form-input.component";
 import Button from "../../components/button/button.component";
@@ -10,8 +11,14 @@ import nameLabel from "../../assets/name-label.png";
 
 import "./sign-up.styles.scss";
 
+const defaultFormFields = {
+  name: "",
+  email: "",
+  password: "",
+}
+
 const SignUp = () => {
-  const { onHandleChange, formFields } = useFormFieldsUpdate("name");
+  const [onHandleChange, formFields] = useFormFieldsUpdate(defaultFormFields);
 
   const { email, password, name } = formFields;
 
@@ -52,7 +59,7 @@ const SignUp = () => {
         <Button type="submit" login>
           Sign Up
         </Button>
-        <span className="register">Sign In</span>
+        <Link to='/signin' className="log-in">Sign In</Link>
       </form>
     </div>
   );

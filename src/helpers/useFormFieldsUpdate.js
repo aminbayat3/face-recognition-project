@@ -1,12 +1,6 @@
 import { useState } from "react";
 
-const defaultFormFields = {
-  email: "",
-  password: "",
-};
-
-export const useFormFieldsUpdate = (name) => {
-  name && (defaultFormFields[name] = "");
+export const useFormFieldsUpdate = (defaultFormFields) => {
   const [formFields, setFormFields] = useState(defaultFormFields);
 
   const onHandleChange = (e) => {
@@ -15,5 +9,8 @@ export const useFormFieldsUpdate = (name) => {
     setFormFields({ ...formFields, [name]: value });
   };
 
-  return {onHandleChange, formFields};
+  return [ onHandleChange, formFields ];
 };
+
+
+// look up "react-use" NPM package

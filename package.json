@@ -6,12 +6,15 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "bcryptjs": "^2.4.3",
     "clarifai": "^2.9.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-parallax-tilt": "^1.7.63",
     "react-router-dom": "^6.4.1",
-    "react-scripts": "4.0.2",
+    "react-scripts": "^4.0.3",
     "react-tsparticles": "^2.3.1",
     "tsparticles": "^2.3.1",
     "web-vitals": "^2.1.4"
@@ -41,6 +44,7 @@
     ]
   },
   "devDependencies": {
+    "nodemon": "^2.0.20",
     "sass": "^1.54.9"
   }
 }

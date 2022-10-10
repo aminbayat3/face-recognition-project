@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef, useEffect } from "react";
+import { useState, useCallback, useRef } from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import Clarifai from "clarifai";
@@ -102,9 +102,9 @@ const HomePage = () => {
   const [box, setBox] = useState(boxDefaultValues);
   const imageRef = useRef();
 
-  useEffect(() => {
-    console.log(box);
-  }, [box]); // using an object in a dependency array
+  // useEffect(() => {
+  //   console.log(box);
+  // }, [box]); // using an object in a dependency array
 
   const particlesInit = useCallback(async (engine) => {
     await loadFull(engine);
