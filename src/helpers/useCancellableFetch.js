@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const customFetch = () => {
@@ -11,15 +11,14 @@ const customFetch = () => {
   return [cancellableFetch, abort];
 };
 
-export const useCancellableFetch = (url, option, body) => {
-  const [error, setError] = useState(null);
+export const useCancellableFetch = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // i think we need to use this cutome hook inside a memoized component then use the compoennt itself
+  const [cancellableFetch, abort] = customFetch();
 
-  useEffect(() => {
-    const [cancellableFetch, abort] = customFetch();
-
+  const logIn = (url, option, body) => {
     if (body) {
+      console.log("if");
       try {
         setIsLoading(true);
 
@@ -32,21 +31,15 @@ export const useCancellableFetch = (url, option, body) => {
             // setCurrentUser
             navigate("/");
           }
+          setIsLoading(false);
         })();
       } catch (error) {
         error.name === "AbortError"
-          ? setError('Request Aborted!')
-          : setError(error)
-      } finally {
-        setIsLoading(false);
+          ? console.log("Request Aborted!")
+          : console.log('failed to fetch data!!', error);
       }
     }
+  };
 
-    return () => {
-        abort();
-        console.log('aborted!');
-    }
-  }, [body]);
-
-  return [isLoading, error];
+  return [isLoading, logIn, abort];
 };
